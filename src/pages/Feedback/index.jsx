@@ -23,7 +23,6 @@ class Index extends Component {
     const {data} = await supabase.from('rankingTrivia').select('*');
     const user = data.find(e => e.picture === infoPlayer.picture);
     if(user) {
-      console.log('entre')
       await supabase.from('rankingTrivia').update({[data.findIndex(e => e.picture === infoPlayer.picture)]: infoPlayer})
     } else {
       await supabase.from('rankingTrivia')
@@ -34,7 +33,6 @@ class Index extends Component {
 
   render() {
     const { global: { player }, history } = this.props;
-    // console.log(player);
     return (
       <div data-testid="feedback-text">
         <Header />

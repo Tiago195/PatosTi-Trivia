@@ -18,30 +18,9 @@ constructor(props) {
   this.handleUrl = this.handleUrl.bind(this)
 }
 
-  componentDidMount() {
-    // this.teste()
-  }
-
   handleUrl({name, value}) {
     this.setState({[name]: value})
   }
-
-  // async teste() {
-  //   const filtroUrl = formatUrl(objCategory['Historia em quadrinhos'], 'boolean')
-  //   // console.log(filtroUrl)
-  //   const results = await (await fetch(filtroUrl)).json()
-  //   // console.log(results)
-  //   toast.success('🦄 Wow so easy!', {
-  //     position: "bottom-center",
-  //     autoClose: 5000,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //     });
-      
-  // }
 
   async reqApi({category,difficulty,type}) {
     const { setUrl } = this.props;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getToken, formatUrl, objCategory } from '../../helpers';
+import { getToken } from '../../helpers';
 import { setToken, setInfoUser, resetGame } from '../../action';
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -14,17 +14,6 @@ class index extends Component {
       player: '',
     };
   }
-
-  // componentDidMount() {
-  //   this.teste()
-  // }
-  
-  // async teste() {
-  //   const filtroUrl = formatUrl(objCategory['Historia em quadrinhos'], 'boolean')
-  //   // console.log(filtroUrl)
-  //   const results = await (await fetch(filtroUrl)).json()
-  //   console.log(results)
-  // }
 
   validation = () => {
     const { email, player } = this.state;
@@ -57,7 +46,7 @@ class index extends Component {
     return (
       <div>
         <label htmlFor="email">
-          Email do Gravatar:
+          nick do Github:
           <input
             id="email"
             type="text"

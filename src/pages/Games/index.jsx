@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from '../../components/Headers';
-import { getQuestions, getToken, fetchGeneric } from '../../helpers';
+import { fetchGeneric } from '../../helpers';
 import Questions from '../../components/Questions';
 import { setToken } from '../../action';
 
@@ -22,13 +22,8 @@ class index extends Component {
   }
 
   async requestApi() {
-    const { token, sendToToken, url } = this.props;
-    const {results} = await fetchGeneric(url); // pegando as perguntas
-    // console.log(url, data)
-    // if (!data.length) { // se o token for falso, executa esse bloco de codigo do if
-    //   sendToToken(await getToken()); // envia um novo token
-    //   this.requestApi(); // executa a funçao dnv com o novo token
-    // }
+    const { url } = this.props;
+    const {results} = await fetchGeneric(url);
     this.setState({ questions: results });
   }
 
@@ -39,7 +34,6 @@ class index extends Component {
     return (
       <div>
         <Header />
-        {console.log(questions, indexQuestion)}
         {questions.length && (
           <Questions
             category={ questions[indexQuestion].category }
