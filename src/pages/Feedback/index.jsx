@@ -23,7 +23,7 @@ class Index extends Component {
     const {data} = await supabase.from('rankingTrivia').select('*');
     const user = data.find(e => e.picture === infoPlayer.picture);
     if(user) {
-      await supabase.from('rankingTrivia').update({[data.findIndex(e => e.picture === infoPlayer.picture)]: infoPlayer})
+      await supabase.from('rankingTrivia').update(infoPlayer).match(user)
     } else {
       await supabase.from('rankingTrivia')
       .insert(infoPlayer);

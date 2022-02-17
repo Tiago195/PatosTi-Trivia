@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import supabase from '../../api/createBase';
+import {FaUserNinja} from 'react-icons/fa';
 
 class index extends Component {
   constructor(props) {
@@ -33,7 +34,10 @@ class index extends Component {
         <section>
           {data && data.map((player, i) => (
             <section key={ player.id } style={ {display: 'flex'}}>
-              <img src={ player.picture } alt="Foto do jogador" width="50px" />
+              {player.picture.includes('@') 
+              ? <FaUserNinja style={ {fontSize: '50px'} }/>
+              : <img src={ player.picture } alt="Foto do jogador" width="50px" />
+              }
               <h3 data-testid={ `player-name-${i}` }>{player.name}</h3>
               <h2 data-testid={ `player-score-${i}` }>{player.score}</h2>
             </section>
